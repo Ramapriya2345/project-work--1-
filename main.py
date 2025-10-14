@@ -44,7 +44,7 @@ def split_into_claims(text: str) -> List[str]:
 
 # -------------------- HALLUCINATION DETECTOR --------------------
 class ProductionHallucinationDetector:
-    def _init_(self, device: str = "cpu", use_fast_mode: bool = False):
+    def __init__(self, device: str = "cpu", use_fast_mode: bool = False):
         self.device = device
         self.use_fast_mode = use_fast_mode
 
@@ -214,7 +214,7 @@ def verify_llm_response(req: RequestBody):
     return result
 
 # -------------------- MAIN (OPTIONAL LOCAL TEST) --------------------
-if _name_ == "_main_":
+if __name__ == "__main__":
     import uvicorn
 
     uvicorn.run(app, host="0.0.0.0", port=8000)
